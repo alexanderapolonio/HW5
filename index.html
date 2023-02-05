@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="site.css">
 
     <title>Document</title>
 </head>
@@ -18,13 +19,13 @@
 
         <!-- header --> 
         <div data-role="header" data-theme='b'>
-            <h2>math program - home</h2>
+            <h2>SURVEY</h2>
         
             <div data-role="navbar" data-theme='b'>
                 <ul>
-                <li><a href="#home">Home Page</a></li>
-                <li><a href="#add">Add Page</a></li>
-                <li><a href="#subtract">Subtract Page</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#questions">Questions</a></li>
+                <li><a href="#results">Results</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div>  
@@ -33,7 +34,19 @@
         <!-- =================================== -->
         <!-- content -->
         <div data-role="content" data-theme='e'>
-            Real application function code
+            <form id="homepage">
+                <h2>Congratulations!!!</h2>
+                <h3>
+                    Today, <span id="currentDate"></span>, you have been chosen to participate in this survey to receive a free Apple iPhone 14!<br>
+                    It will take you only a minute and you will receive your fantastic prize!
+                </h3>
+                <img src="images/iphone14.jpg" id="iphone14" alt="image of iPhone14s">
+                <h3>
+                    Every week we choose 10 random users to give them a chance to win a fabulous prize!<br>
+                    Today's prize is a new Apple iPhone 14! United States Only.<br><br>
+                    This survey aims to improve the service for our users. Hurry up the number of prizes to be won is limited!
+                </h3>
+            </form>
         </div>
         <!-- =================================== -->
 
@@ -48,18 +61,18 @@
 
 
    <!-- ======================================================================================== -->
-    <div data-role="page" id="add">
+    <div data-role="page" id="questions">
         
         <!-- =================================== -->
         <!-- header --> 
         <div data-role="header" data-theme='b'>
-            <h2>math program - add</h2>
+            <h2>SURVEY - QUESTIONS PAGE</h2>
 
             <div data-role="navbar" data-theme='b'>
                 <ul>
-                 <li><a href="#home">Home Page</a></li>
-                 <li><a href="#add">Add Page</a></li>
-                 <li><a href="#subtract">Subtract Page</a></li>
+                 <li><a href="#home">Home</a></li>
+                 <li><a href="#questions">Questions</a></li>
+                 <li><a href="#results">Results</a></li>
                 </ul>
             </div><!-- /navbar -->
 
@@ -69,20 +82,49 @@
         <!-- =================================== -->
         <!-- content -->
         <div data-role="content" data-theme='e'>
-            Real application function code
+            <h3>Please answer these questions.</h3><br>
+            <form id="questionnaire">
+                <label for="label-question1">Question 1: What is your age?</label>
+                <input type="radio" id="under20" name="age" value="Under 20" />
+                <label for="under20">Under 20 Years Old</label><br>
+                <input type="radio" id="20-29" name="age" value="20 through 29" />
+                <label for="20-29">20 - 29 Years Old</label><br>
+                <input type="radio" id="30-39" name="age" value="30 through 39" />
+                <label for="30-39">30 - 39 Years Old</label><br>
+                <input type="radio" id="above40" name="age" value="Above 40" />
+                <label for="above40">Above 40 Years Old</label><br><br>
 
-            <label for="1stnumber">1st Number:</label><br>    
-            <input type="text" id="num1" /><br><br>
+                <label for="label-question2">Question 2: What model iPhone do you currently use?</label>
+                <input type="radio" id="ip14" name="model" value="iPhone 14" />
+                <label for="ip14">iPhone 14</label><br>
+                <input type="radio" id="ip13" name="model" value="iPhone 13" />
+                <label for="ip13">iPhone 13</label><br>
+                <input type="radio" id="ip12" name="model" value="iPhone 12" />
+                <label for="ip12">iPhone 12</label><br>
+                <input type="radio" id="ip11" name="model" value="iPhone 11 and Older" />
+                <label for="ip11">iPhone 11 and Older</label><br><br>
 
-            <label for="2ndnumber">2nd Number:</label><br>    
-            <input type="text" id="num2" /><br><br>
+                <label for="label-question3">Question 3: What version is your current iPhone?</label>
+                <input type="radio" id="proMax" name="ver" value="Pro Max" />
+                <label for="proMax">iPhone Pro Max</label><br>
+                <input type="radio" id="pro" name="ver" value="Pro" />
+                <label for="pro">iPhone Pro</label><br>
+                <input type="radio" id="plus" name="ver" value="Plus" />
+                <label for="plus">iPhone Plus</label><br>
+                <input type="radio" id="standard" name="ver" value="Standard" />
+                <label for="standard">iPhone Standard</label><br><br>
 
-             <button type="button" onclick="add()">Add</button>
-
-             <p>
-                <span id="results"></span>
-            </p>
-            
+                <label for="label-question4">Question 4: What storage size is your current iPhone?</label>
+                <input type="radio" id="1tb" name="size" value="1 TB" />
+                <label for="1tb">1 TB</label><br>
+                <input type="radio" id="512gb" name="size" value="512 GB" />
+                <label for="512gb">512 GB</label><br>
+                <input type="radio" id="256gb" name="size" value="256 GB" />
+                <label for="256gb">256 GB</label><br>
+                <input type="radio" id="128gb" name="size" value="128 GB" />
+                <label for="128gb">128 GB</label><br><br>
+                <button type="button" onclick="submitAnswers()">Submit</button>
+            </form>
         </div>
         <!-- =================================== -->
 
@@ -99,19 +141,19 @@
 
     
       <!-- ======================================================================================== -->
-    <div data-role="page" id="subtract">
+    <div data-role="page" id="results">
         
           <!-- =================================== -->
         <!-- header --> 
         <div data-role="header" data-theme='b'>
-            <h2>math program - subtract</h2>
+            <h2>SURVEY - RESULTS PAGE</h2>
        
 
             <div data-role="navbar" data-theme='b'>
                 <ul>
-                <li><a href="#home">Home Page</a></li>
-                <li><a href="#add">Add Page</a></li>
-                <li><a href="#subtract">Subtract Page</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#questions">Questions</a></li>
+                <li><a href="#results">Results</a></li>
                 </ul>
             </div><!-- /navbar -->
         </div>
@@ -120,7 +162,17 @@
           <!-- =================================== -->
         <!-- content -->
         <div data-role="content" data-theme='e'>
-            Real application function code
+            <h3>Input your information to get the results! Submit to claim your free iPhone!</h3>
+            <form id="contactinfo">
+                <label for="label-fname">First Name:</label>
+                <input type="text" id="fname" placeholder="Enter your first name"/><br>
+                <label for="label-lname">Last Name:</label>
+                <input type="text" id="lname" placeholder="Enter your last name"/><br>
+                <label for="label-email">Email Address:</label>
+                <input type="text" id="email" placeholder="Enter your email address"/><br>
+                <button type="button" onclick="submitInfo()">Submit</button>
+            </form>
+            <span id="surveyResults"></span>
         </div>
            <!-- =================================== -->
 
